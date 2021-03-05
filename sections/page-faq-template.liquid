@@ -17,20 +17,21 @@
                     </h2>
 
                 {% when 'faq_item' %}
-                    <dt class="faq-section__item" aria-expanded="false" aria-controls="#faq-answer-{{ forloop.index }}">
-                        <button type="button" class="faq-section__item-question">
-                            <span class="faq-section__item-question--copy h4">
-                                {{ block.settings.question }}
-                            </span>
-                            <span class="faq-section__item-question--icon">
-                                {% include 'icon-chevron-down' %}
-                            </span>
-                        </button>
-                    </dt>
-                    <dd id="faq-answer-{{ forloop.index }}" class="faq-section__item-answer" aria-hidden="true">
-                        {{ block.settings.answer }}
-                    </dd>
-                    
+                    <div class="faq-section__item-wrapper">
+                        <dt class="faq-section__item">
+                            <button type="button" class="faq-section__item-question" aria-expanded="false" aria-controls="#faq-answer-{{ forloop.index }}">
+                                <span class="faq-section__item-question--copy h4">
+                                    {{ block.settings.question }}
+                                </span>
+                                <span class="faq-section__item-question--icon">
+                                    {% include 'icon-plus' %}
+                                </span>
+                            </button>
+                        </dt>
+                        <dd id="faq-answer-{{ forloop.index }}" class="faq-section__item-answer" aria-hidden="true">
+                            {{ block.settings.answer }}
+                        </dd>
+                    </div>
             {% endcase %}
         {% endfor %}
     </dl>
