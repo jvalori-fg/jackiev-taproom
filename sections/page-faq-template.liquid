@@ -1,0 +1,82 @@
+{% assign has_section_separator = false %}
+
+{% for block in section.blocks %}
+    {% if block.type == 'separator' %}
+        {% assign has_section_separator = true %}
+        {% break %}
+    {% endif %}
+{% endfor %}
+
+{% capture faq_content %}
+    <dl class="faqAccordion">
+        {% for block in section.blocks %}
+            {% case block.type %}
+                {% when 'separator' %}
+                    <h2 class="faq-section__headline" {{ block.shopify_attributes}}>
+                        {{ block.settings.section_headline }}
+                    </h2>
+
+                {% when 'faq_item' %}
+                    <dt class="faq-section__item" aria-expanded="false" aria-controls="#faq-answer-{{ forloop.index }}">
+                        <button type="button" class="faq-section__item-question">
+                            <span class="faq-section__item-question--copy h4">
+                                {{ block.settings.question }}
+                            </span>
+                            <span class="faq-section__item-question--icon">
+                                {% include 'icon-chevron-down' %}
+                            </span>
+                        </button>
+                    </dt>
+                    <dd id="faq-answer-{{ forloop.index }}" class="faq-section__item-answer" aria-hidden="true">
+                        {{ block.settings.answer }}
+                    </dd>
+                    
+            {% endcase %}
+        {% endfor %}
+    </dl>
+{% endcapture %}
+
+<section data-section-type="faq" data-section-id="{{ section.id}}">
+    <div class="page-content page-width">
+        {{ faq_content }}
+    </div>
+</section>
+
+
+
+{% schema %}
+{
+    "name": "FAQ",
+    "settings": [],
+    "blocks": [
+        {
+            "type": "separator",
+            "name": "Section Title",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "section_headline",
+                    "label": "Headline",
+                    "default": "Frequently Asked Questions"
+                }
+            ]
+        },
+        {
+            "type": "faq_item",
+            "name": "FAQ Item",
+            "settings": [
+                {
+                    "type": "richtext",
+                    "id": "question",
+                    "label": "Question"
+                },
+                {
+                    "type": "richtext",
+                    "id": "answer",
+                    "label": "Answer"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
