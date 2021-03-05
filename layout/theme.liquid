@@ -77,10 +77,6 @@
 
   <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}" type="text/css" media="print" onload="this.media='all';onLoadStylesheet()">
 
-  <!-- Minified files -->
-  {{ 'main.min.css' | asset_url | stylesheet_tag }}
-  {{ 'index.min.js' | asset_url | script_tag }}
-
   <style>
     {{ header_font | font_face: font_display: 'swap' }}
     {{ base_font | font_face: font_display: 'swap' }}
@@ -155,6 +151,10 @@
 
   <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'lazysizes.js' | asset_url }}" async="async"></script>
+
+  <!-- Minified files -->
+  {{ 'main.min.css' | asset_url | stylesheet_tag }}
+  {{ 'index.min.js' | asset_url | script_tag }}
 
   <script type="text/javascript">
     if (window.MSInputMethodContext && document.documentMode) {

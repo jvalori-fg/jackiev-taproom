@@ -35,6 +35,17 @@
               data-image>
       </div>
     </div>
+
+    <div class="grid-view-item__overlay-wrapper">
+      <a class="grid-view-item__overlay-link" href="{{ product.url | within: collection }}">{{ product.title }}</a>
+      <div class="grid-view-item__buy-now-wrapper">
+        {% if product.available %}
+        <span class="btn buy-now-button shopify-payment-button__button--unbranded">Buy Now</span>
+        {% else %}
+        <span class="btn btn--secondary-accent buy-now-button">Get Updates</span>
+        {% endif %}
+      </div>
+    </div>
   </div>
 
   <noscript>
