@@ -17,7 +17,7 @@
                     </h2>
 
                 {% when 'faq_item' %}
-                    <div class="faq-section__item-wrapper">
+                    <div class="faq-section__item-wrapper" {{ block.shopify_attributes}}>
                         <dt class="faq-section__item">
                             <button type="button" class="faq-section__item-question" aria-expanded="false" aria-controls="#faq-answer-{{ forloop.index }}">
                                 <span class="faq-section__item-question--copy h4">

@@ -45,20 +45,22 @@
 
 // Product card hover state
 .product-card{
-    &:hover{
-        .product-card__image-wrapper{
-            transition: opacity .3s ease;
-        }
-        .grid-view-item{
-            &__buy-now-wrapper{
-                transform: translateY(-50%);
+    @media screen and (min-width: 768px){
+        &:hover{
+            .product-card__image-wrapper{
+                transition: opacity .3s ease;
             }
+            .grid-view-item{
+                &__buy-now-wrapper{
+                    transform: translateY(-50%);
+                }
+            }
+            .buy-now-button{
+                opacity: 1;
+                pointer-events: all;
+                cursor: pointer;
+            }
+            
         }
-        .buy-now-button{
-            opacity: 1;
-            pointer-events: all;
-            cursor: pointer;
-        }
-        
     }
 }

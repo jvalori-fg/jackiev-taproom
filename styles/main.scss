@@ -1,2 +1,13 @@
 @import './components/buy-now-button';
 @import './faq';
+
+// Theme Tweaks
+
+// Product Grid Sizing Consistencies
+.grid-view-item__image-wrapper {
+    width: 100%;
+    max-width: 100% !important;
+    .grid-view-item__image {
+        object-fit: cover;
+        height: 100%; }
+}

@@ -17,6 +17,7 @@
   {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
   {%- assign preview_image = product.featured_media.preview_image -%}
   {%- assign img_url = preview_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+  {%- assign image_ratio = 1 | divided_by: preview_image.aspect_ratio -%}
 
   {% unless preview_image == blank %}
     {% include 'image-style', image: preview_image, height: max_height, wrapper_id: wrapper_id, img_id: img_id %}
@@ -24,7 +25,7 @@
 
   <div class="product-card__image-with-placeholder-wrapper" data-image-loading-animation>
     <div id="{{ wrapper_id }}" class="grid-view-item__image-wrapper product-card__image-wrapper js">
-      <div style="padding-top:{% unless preview_image == blank %}{{ 1 | divided_by: preview_image.aspect_ratio | times: 100 }}%{% else %}100%{% endunless %};">
+      <div style="padding-top:{% unless preview_image == blank %}{% if image_ratio > 1 %}140{% else %}{{ 1 | divided_by: preview_image.aspect_ratio | times: 100 }}{% endif %}%{% else %}100%{% endunless %};">
         <img id="{{ img_id }}"
               class="grid-view-item__image lazyload"
               alt="{{ preview_image.alt }}"

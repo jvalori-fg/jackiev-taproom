@@ -1,3 +1,7 @@
+#shopify-section-hero{
+    margin-top: -55px;
+    padding-top:0;
+}
 .faq-section{
     &__headline{
         margin-top: 10px;
@@ -49,6 +53,7 @@
 
     &__item-answer{
         padding: 1rem 0;
+        margin-inline-start: 10px;
         display: none;
     }
 }

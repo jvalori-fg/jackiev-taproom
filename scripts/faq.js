@@ -7,7 +7,7 @@ let targetAnswer;
 function faqToggle(){
     $('.faq-section__item-question').on('click', function(){
         targetAnswer = $(this).attr('aria-controls')
-        console.log( targetAnswer.scrollHeight )
+        $(this).focus();
 
         if ( $(this).attr('aria-expanded') == "false") {
             
