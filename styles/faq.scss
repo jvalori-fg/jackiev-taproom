@@ -30,7 +30,14 @@
             outline: 1px dotted #5356f830;
         }
 
+        @media screen and (min-width: 768px){
+            &:hover{
+                background-color: #9dbac430;
+            }
+        }
+
         &[aria-expanded="true"]{
+            background-color: #9dbac430;
             .faq-section__item-question--icon{
                 svg{
                     transform: rotate(135deg);
