@@ -15,3 +15,66 @@
         max-height: unset !important;
      }
 }
+
+// Product Card Name and Pricing 
+.product-card{
+    &:hover, &:focus{
+        .product-card__title{
+            border-color: transparent;
+        }
+    }
+    @media screen and (min-width: 768px){
+        &:hover, &:focus{
+            .product-card__title{
+                &::after{
+                    width: 60%;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    &__title{
+        display:block;
+        text-align: center;
+        position:relative;
+        padding-bottom: 5px;
+        &::after{
+            position: absolute;
+            bottom: 0;
+            left:50%;
+            content: "";
+            height:1px;
+            background-color: currentColor;
+            transform: translateX(-50%);
+            opacity: 0;
+            width:1%;
+            transition: all .3s ease;
+        }
+    }
+    .price{
+        align-items: center;
+        flex-direction: row-reverse;
+        justify-content: center;
+        margin-top:8px;
+        position: relative;
+        &__regular{
+            margin-right: 0px;
+        }
+        dd{
+            margin: 0;
+        }
+        &__sale{
+            margin-right: 0;
+        }
+        &__compare{
+            .price-item--regular{
+                margin-left:8px;
+                font-size:.7em;
+                opacity:.8;
+            }
+        }
+        &__badges{
+            margin:0 8px 0 0;
+        }
+    }
+}
