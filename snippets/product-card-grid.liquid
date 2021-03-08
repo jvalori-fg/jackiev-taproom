@@ -43,7 +43,7 @@
         {% if product.available %}
           <span class="btn buy-now-button shopify-payment-button__button--unbranded">Buy Now</span>
         {% else %}
-          <span class="btn btn--secondary-accent buy-now-button getUpdates">Get Updates</span>
+          <span class="btn btn--secondary-accent buy-now-button getUpdates" data-product-notifications-name="{{ product.title }}" data-product-notifications-id="{{ product.id}}">Get Updates</span>
         {% endif %}
       </div>
     </div>

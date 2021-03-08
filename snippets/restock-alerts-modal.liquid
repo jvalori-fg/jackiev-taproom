@@ -1,0 +1,21 @@
+<div id="restockModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">{% include 'icon-close' %}</span>
+        </div>
+        <div class="modal-body">
+            <h2>Send me updates</h2>
+            <p>Email me when <span class="product"></span> is back in stock.</p>
+            <form>
+                <label for="restock-email">Email Address</label>
+                <input type="hidden" id="productID" name="productID" value="">
+                <input id="restock-email" type="email">
+                <span class="form-error">Please enter a valid email</span>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <div class="confirmation-message">
+                <p>You'll get an email when the item is back in stock!</p>
+            </div>
+        </div>
+    </div>
+</div>
