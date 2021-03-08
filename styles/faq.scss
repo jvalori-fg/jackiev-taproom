@@ -26,10 +26,10 @@
         padding: 1rem 5px;
         border: 0;
         background-color: white;
+        transition: all .3s ease;
         &:focus{
             outline: 1px dotted #5356f830;
         }
-
         @media screen and (min-width: 768px){
             &:hover{
                 background-color: #9dbac430;

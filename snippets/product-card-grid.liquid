@@ -41,9 +41,9 @@
       <a class="grid-view-item__overlay-link" href="{{ product.url | within: collection }}">{{ product.title }}</a>
       <div class="grid-view-item__buy-now-wrapper">
         {% if product.available %}
-        <span class="btn buy-now-button shopify-payment-button__button--unbranded">Buy Now</span>
+          <span class="btn buy-now-button shopify-payment-button__button--unbranded">Buy Now</span>
         {% else %}
-        <span class="btn btn--secondary-accent buy-now-button">Get Updates</span>
+          <span class="btn btn--secondary-accent buy-now-button getUpdates">Get Updates</span>
         {% endif %}
       </div>
     </div>
