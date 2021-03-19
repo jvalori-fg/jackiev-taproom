@@ -34,9 +34,9 @@ function buyNowButton(e){
             $($this).html("Loading...")
         },
         success: function(){
-            console.log("Success!")
             $($this).attr("disabled", false)
             $($this).html("Buy Now")
+            updateCartCount();
         },
         error: function(){
             alert("Error!")
@@ -44,4 +44,18 @@ function buyNowButton(e){
     })
     
 
+}
+
+function updateCartCount(){
+
+    $.getJSON('/cart.js', function(cart){
+        console.log(cart.item_count)
+                $("#CartCount").find('[data-cart-count]').html(cart.item_count)
+                if ( cart.item_count > 0 ){
+                    $('#CartCount').removeClass('hide')
+                } else {
+                    $('#CartCount').removeClass('hide')
+                }
+            }
+    )
 }
