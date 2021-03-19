@@ -41,7 +41,7 @@
       <a class="grid-view-item__overlay-link" href="{{ product.url | within: collection }}">{{ product.title }}</a>
       <div class="grid-view-item__buy-now-wrapper">
         {% if product.available %}
-          <span class="btn buy-now-button shopify-payment-button__button--unbranded">Buy Now</span>
+          <span class="btn buy-now-button shopify-payment-button__button--unbranded" data-buy-now-button="true" data-variant-id="{{ product.first_available_variant.id }}" >Buy Now</span>
         {% else %}
           <span class="btn btn--secondary-accent buy-now-button getUpdates" data-product-notifications-name="{{ product.title }}" data-product-notifications-id="{{ product.id}}">Get Updates</span>
         {% endif %}
